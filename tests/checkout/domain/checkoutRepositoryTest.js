@@ -4,6 +4,7 @@ const checkoutRepository = require('../../../src/checkout/domain/checkoutsReposi
 
 require('chai').should();
 const expect = require('chai').expect;
+const _ = require('lodash');
 
 describe('The Checkout Repository', () => {
 
@@ -14,6 +15,7 @@ describe('The Checkout Repository', () => {
     const fixture = {
         id: 1,
         checkout: {
+            items: {},
             total: {
                 value: 0,
                 currency: 'EUR'
@@ -48,5 +50,33 @@ describe('The Checkout Repository', () => {
         expect(checkout).to.be.an('undefined');
 
         done();
+    });
+
+    it('Should add a new product to an existing checkout', done => {
+
+      const id = fixture.id;
+
+      checkoutRepository.create(id);
+      checkoutRepository.add(id, 'A');
+
+      const checkout = checkoutRepository.retrieve(id);
+      checkout.should.deep.equal(_.assign(fixture.checkout,{items: {'A': 1}}));
+
+      done();
+
+    });
+
+    it('Should add several products to an existing checkout', done => {
+
+      const id = fixture.id;
+
+      checkoutRepository.create(id);
+      ['A', 'A', 'A', 'B', 'C'].forEach((item) => checkoutRepository.add(id, item));
+
+      const checkout = checkoutRepository.retrieve(id);
+      checkout.should.deep.equal(_.assign(fixture.checkout,{items: {'A': 3, 'B': 1, 'C': 1}}));
+
+      done();
+
     });
 });

@@ -8,7 +8,8 @@ Feature: Add item to checkout
     When a supermarket clerk adds the following items to the checkout "1"
     | product |
     | A       |
-    Then the resulting checkout value will be "10"
+    And a supermarket clerk want consult the current state the checkout "1"
+    Then the resulting value for checkout "1" will be "10"
 
   Scenario: Retrieve an existing checkout with several of the same item
     Given an existing checkout with code "1"
@@ -16,7 +17,8 @@ Feature: Add item to checkout
     | product |
     | A       |
     | A       |
-    Then the resulting checkout value will be "14"
+    And a supermarket clerk want consult the current state the checkout "1"
+    Then the resulting value for checkout "1" will be "14"
 
   Scenario: Retrieve an existing checkout with several of the same item
     Given an existing checkout with code "1"
@@ -25,7 +27,8 @@ Feature: Add item to checkout
     | A       |
     | A       |
     | A       |
-    Then the resulting checkout value will be "24"
+    And a supermarket clerk want consult the current state the checkout "1"
+    Then the resulting value for checkout "1" will be "24"
 
   Scenario: Retrieve an existing checkout with several of the same item
     Given an existing checkout with code "1"
@@ -34,4 +37,5 @@ Feature: Add item to checkout
     | A       |
     | B       |
     | A       |
-    Then the resulting checkout value will be "19"
+    And a supermarket clerk want consult the current state the checkout "1"
+    Then the resulting value for checkout "1" will be "19"
