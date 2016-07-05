@@ -11,6 +11,7 @@ module.exports = function() {
         response.statusCode.should.equal(201);
 
         response.body.should.be.deep.equal({
+            items: {},
             total: {
                 value: 0,
                 currency: 'EUR'
