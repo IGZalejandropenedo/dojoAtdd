@@ -14,7 +14,10 @@ function create() {
     });
 
     server.use(restify.queryParser());
-    server.use(restify.bodyParser());
+    server.use(restify.bodyParser({
+      mapParams: true,
+      overrideParams: false,
+    }));
 
     return server;
 }

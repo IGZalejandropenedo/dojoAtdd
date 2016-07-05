@@ -1,0 +1,18 @@
+{
+  "A": [
+    {
+      "amount": 1,
+      "value": 10
+    },
+    {
+      "amount": 2,
+      "value": 7
+    }
+  ],
+  "B": [
+    {
+      "amount": 1,
+      "value": 5
+    }
+  ]
+}

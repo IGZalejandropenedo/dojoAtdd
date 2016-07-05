@@ -3,7 +3,7 @@
 const checkoutRepository = require('../domain/checkoutsRepository');
 
 module.exports = function(req, res, next) {
-    let id = req.params.checkoutId;
+    let id = req.context.checkoutId;
     let checkout = checkoutRepository.retrieve(id);
 
     if (checkout === undefined) {
