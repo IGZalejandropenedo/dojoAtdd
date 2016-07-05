@@ -58,7 +58,7 @@ describe('Retrieve an existing checkout', () => {
 
     function createRequest() {
         return {
-            params: {
+            context: {
                 checkoutId: 1
             }
         };
